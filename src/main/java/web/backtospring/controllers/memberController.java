@@ -16,6 +16,12 @@ public class memberController {
     @Autowired
     MemberService memberService;
 
+    @GetMapping("/login")
+    public String showLoginForm(){
+        return "views/loginForm";
+    }
+
+
     @GetMapping("/register")
     public String registerForm(Model model){
         model.addAttribute("member", new Member());
