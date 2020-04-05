@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Back to Spring</title>
@@ -36,6 +36,8 @@
         <h1>Back to Spring</h1>
         <p class="lead">This example is a quick exercise to use bootstrap with Spring. We used simple design in
             bootstrap. I just i wanted to show integration you.</p>
+        <p Message example; th:text="${message}"></p>
+        <p Date example; th:text="${date}"></p>
         <a class="btn btn-lg btn-primary" href="#" role="button">Login &raquo;</a>
         <a class="btn btn-lg btn-primary" href="#" role="button">Register &raquo;</a>
     </div>
