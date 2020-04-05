@@ -10,30 +10,30 @@
 <div layout:fragment="content" class="container" >
     <div class="simple-login-container  col-md-4 offset-md-4">
         <h2>Register Form</h2>
-        <form th:action="@{/register}" method="post">
+        <form th:action="@{/register}" th:object="${member}" method="post">
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" placeholder="First Name" id="firstName" >
+                    <input type="text" class="form-control" placeholder="First Name" id="firstName" th:field="*{firstName}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+                    <input type="text" class="form-control" placeholder="Last Name" id="lastName" th:field="*{lastName}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" placeholder="email" id="email">
+                    <input type="text" class="form-control" placeholder="email" id="email" th:field="*{email}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="password" placeholder="Enter your Password"  id="password" class="form-control">
+                    <input type="password" placeholder="Enter your Password"  id="password" class="form-control" th:field="*{password}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="submit" class="btn btn-lg btn-primary btn-block">
+                    <input type="submit" class="btn btn-primary btn-block btn-login">
                 </div>
             </div>
         </form>
