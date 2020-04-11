@@ -9,6 +9,51 @@
 <body>
 <div layout:fragment="content" class="container" >
     <div class="simple-login-container  col-md-4 offset-md-4">
+        <div class="alert alert-info alert-labeled" th:if="${exist}">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <div class="alert-labeled-row">
+                        <span class="alert-label alert-label-left alert-labelled-cell">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                        </span>
+                <p class="alert-body alert-body-right alert-labelled-cell">
+                    Yazdığınız e-posta adresine sahip kullanıcı bulunmaktadır. Lütfen başka bir e-posta adresi deneyiniz.
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-info alert-labeled" th:if="${success}">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+            <div class="alert-labeled-row">
+                        <span class="alert-label alert-label-left alert-labelled-cell">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                        </span>
+                <p class="alert-body alert-body-right alert-labelled-cell alertload">
+                    Kaydınız Başarılı! Giriş sayfasına yönlendiriliyorsunuz ... <i class="fa fa-spinner fa-spin"></i>
+                </p>
+            </div>
+            <style>
+                .alertload {
+                    border: none; /* Remove borders */
+                    color: white; /* White text */
+                    padding: 12px 24px; /* Some padding */
+                    font-size: 16px; /* Set a font-size */
+                }
+
+                /* Add a right margin to each icon */
+                .fa {
+                    float: right;
+                }
+            </style>
+            <script>
+
+                setTimeout(function() {
+                    window.location.href = "/login";
+                }, 2500);
+            </script>
+        </div>
         <h2>Register Form</h2>
         <form th:action="@{/register}" th:object="${member}" method="post">
             <div class="row">
