@@ -24,9 +24,11 @@ public class Member {
     private String lastName;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "MEMBER_ROLES", joinColumns = {
-            @JoinColumn(name = "MEMBER_EMAIL", referencedColumnName = "email")}, inverseJoinColumns = {
-            @JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
+    @JoinTable(
+            name = "member_roles",
+            joinColumns = @JoinColumn(name = "MEMBER_EMAIL", referencedColumnName = "email"),
+            inverseJoinColumns = @JoinColumn(name = "ROLE_NAME", referencedColumnName = "name")
+    )
     private List<Role> role;
 
     public String getEmail() {
