@@ -11,14 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
-//import org.postgresql.jdbc2.optional.PoolingDataSource;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
-//    private PoolingDataSource dataSource;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -40,6 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/register", "/login").permitAll()
                 .antMatchers("/index").hasAnyRole("MEMBER, ADMIN")
                 .and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/").and().logout().logoutSuccessUrl("/logout");
+                .defaultSuccessUrl("/").and().logout().logoutSuccessUrl("/login?logout").permitAll();
     }
 }
